@@ -30,7 +30,9 @@ class PlutoGridShortcut {
     required RawKeyboard state,
   }) {
     for (final action in actions.entries) {
-      if (action.key.accepts(keyEvent.event, state)) {
+      //if (action.key.accepts(keyEvent.event, state)) {
+     // Ajuste a linha problemática:
+      if (action.key.accepts(keyEvent.event as KeyEvent, state as HardwareKeyboard)) {   
         action.value.execute(keyEvent: keyEvent, stateManager: stateManager);
         return true;
       }
