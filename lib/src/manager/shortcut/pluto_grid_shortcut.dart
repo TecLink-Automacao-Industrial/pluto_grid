@@ -27,12 +27,12 @@ class PlutoGridShortcut {
   bool handle({
     required PlutoKeyManagerEvent keyEvent,
     required PlutoGridStateManager stateManager,
-    required RawKeyboard state,
+    required HardwareKeyboard state, //RawKeyboard state,
   }) {
     for (final action in actions.entries) {
       //if (action.key.accepts(keyEvent.event, state)) {
      // Ajuste a linha problemática:
-      if (action.key.accepts(keyEvent.event as KeyEvent, state as HardwareKeyboard)) {   
+      if (action.key.accepts(keyEvent.event as KeyEvent, state )) {   
         action.value.execute(keyEvent: keyEvent, stateManager: stateManager);
         return true;
       }
